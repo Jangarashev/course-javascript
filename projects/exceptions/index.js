@@ -21,12 +21,12 @@
    isAllTrue([100, 2, 3, 4, 5], n => n < 10) // вернет false (потому что как минимум первый элемент больше 10)
  */
 function isAllTrue(array, fn) {
-  if (!Array.isArray(array) || array.lenght === 0) {
+  if (!Array.isArray(array) || array.length === 0) {
     throw new Error ('empty array');
   }
 
   if (typeof fn !== 'function') {
-    throw new Error('fn is not a function')
+    throw new Error('fn is not a function');
   }
 
   for (const el of array) {
@@ -61,12 +61,12 @@ function isAllTrue(array, fn) {
  */
 function isSomeTrue(array, fn) {
 
-  if (!Array.isArray(array) || array.lenght === 0) {
+  if (!Array.isArray(array) || array.length === 0) {
     throw new Error ('empty array');
   }
 
   if (typeof fn !== 'function') {
-    throw new Error('fn is not a function')
+    throw new Error('fn is not a function');
   }
 
   for (const el of array) {
@@ -94,7 +94,7 @@ function isSomeTrue(array, fn) {
 function returnBadArguments(fn, ...args) {
 
   if (typeof fn !== 'function') {
-    throw new Error('fn is not a function')
+    throw new Error('fn is not a function');
   }
 
   const badArgs = [];
@@ -136,10 +136,10 @@ function returnBadArguments(fn, ...args) {
    console.log(calc.div(2, 2)); // выведет 2.5 (10 / 2 / 2)
    console.log(calc.div(2, 0)); // выбросит исключение, потому что один из аргументов равен 0
  */
-function calculator(number) {
+function calculator(number = 0) {
 
   if (typeof number !== 'number') {
-    throw new Error('fn is not a number');
+    throw new Error('number is not a number');
   }
 
   return {
@@ -158,7 +158,7 @@ function calculator(number) {
       return args.reduce((all, current) => all / current, number);
     },
 
-    nul(...args) {
+    mul(...args) {
       return args.reduce((all, current) => all * current, number);
     },
   }
