@@ -10,13 +10,10 @@
    forEach([1, 2, 3], (el) => console.log(el)); // выведет каждый элемент массива
  */
    function forEach(array, fn) {
-    for (let i = 0; i < array.length; i++) 
-  
-    fn(array[i], i, array)};
-  
-  
-  forEach([1, 2, 3], (el) => console.log(el))
-
+    for (const [ix, el] of array.entries()) {
+      fn(el, ix, array);
+     }
+    }
 
 
 /*
@@ -64,7 +61,6 @@
     }
     return all;
   }
-
 
 /*
  Задание 4:
