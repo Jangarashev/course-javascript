@@ -12,7 +12,7 @@
  */
 function createDivWithText(text) {
   const divAdd = document.createElement('div');
-  divAdd.textContent = 'laftschool';
+  divAdd.textContent = 'text';
   return divAdd;
 }
 
@@ -95,6 +95,12 @@ function findError(where) {
    должно быть преобразовано в <div></div><p></p>
  */
 function deleteTextNodes(where) {
+
+  for (const child of where.children) {
+    result.push(child.deleteTextContent);
+  }
+
+  return result;
 }
 
 /*
@@ -118,6 +124,15 @@ function deleteTextNodes(where) {
    }
  */
 function collectDOMStat(root) {
+
+  const body = document.body;
+
+  for (const node of body.childNodes) {
+    if(node.nodeType === 3) {
+      console.log('texts')
+    } else if(node.nodeType === 1) {console.log('tags')}
+  }
+
 }
 
 export {
