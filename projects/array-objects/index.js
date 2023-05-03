@@ -17,11 +17,6 @@
   
   forEach([1, 2, 3], (el) => console.log(el))
 
-    //    function forEach(array, fn) {
-   //       for (const [ix, el] of array.entries()) {
-  //          fn(el, ix, array);
- //         }
-//         }
 
 
 /*
@@ -43,9 +38,6 @@
   
     return newArray;
   }
-
-  // точно так же как и в разборе заданий
-
 
 
 /*
@@ -73,7 +65,6 @@
     return all;
   }
 
-  // самому не получилось сделать
 
 /*
  Задание 4:

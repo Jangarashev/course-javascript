@@ -29,14 +29,12 @@ function isAllTrue(array, fn) {
     throw new Error('fn is not a function');
   }
 
-  for (const el of array) {
-    if (!fn(el)) {
-      return false;
-    }
-  }
+  let result = true;
+    array.forEach((el) => {
+     result = result && fn(el);
+    });
 
-  return true;
-
+  return result;
 }
 
 /*
@@ -69,14 +67,12 @@ function isSomeTrue(array, fn) {
     throw new Error('fn is not a function');
   }
 
-  for (const el of array) {
-    if (fn(el)) {
-      return true;
-    }
-  }
+  let result = false;
+    array.forEach((el) => {
+     result = result || fn(el);
+    });
 
-  return false;
-  
+  return result;
 }
 
 /*
