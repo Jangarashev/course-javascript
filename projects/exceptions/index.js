@@ -29,12 +29,14 @@ function isAllTrue(array, fn) {
     throw new Error('fn is not a function');
   }
 
-  let result = true;
-    array.forEach((el) => {
-     result = result && fn(el);
-    });
+  for (let i = 0; i < array.length; i++) {
+    let el = array[i];
+    if (!fn(el)) {
+      return false;
+    }
+  };
 
-  return result;
+  return true;
 }
 
 /*
@@ -67,13 +69,17 @@ function isSomeTrue(array, fn) {
     throw new Error('fn is not a function');
   }
 
-  let result = false;
-    array.forEach((el) => {
-     result = result || fn(el);
-    });
+  for (let i = 0; i < array.length; i++) {
+    let el = array[i];
+    if (fn(el)) {
+      return true;
+    }
+  };
 
-  return result;
+  return false;
+
 }
+
 
 /*
  Задание 3:
