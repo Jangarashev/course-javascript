@@ -12,7 +12,7 @@
  */
 function createDivWithText(text) {
   const divAdd = document.createElement('div');
-  divAdd.textContent = 'text';
+  divAdd.textContent = text;
   return divAdd;
 }
 
@@ -24,10 +24,10 @@ function createDivWithText(text) {
  Пример:
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
-   function prepend(what, where) {
-    where.insertBefore(what, where.firstChild);
-  }
-// first child
+function prepend(what, where) {
+  where.prepend(what);
+}
+
 /*
  Задание 3:
 
@@ -48,11 +48,12 @@ function createDivWithText(text) {
    findAllPSiblings(document.body) // функция должна вернуть массив с элементами div и span т.к. следующим соседом этих элементов является элемент с тегом P
  */
 function findAllPSiblings(where) {
-
-  const p = document.p;
-
-  console.log([p.nextSibling]);
-  console.log([p.previousSibling]);
+  const tempArr = [];
+  for (const child of where.children)
+    if (child.tagName === 'P') {
+        tempArr.push(child.previousElementSibling);
+    };
+  return tempArr;
 }
 
 /*
@@ -74,11 +75,9 @@ function findAllPSiblings(where) {
  */
 function findError(where) {
   const result = [];
-
   for (const child of where.children) {
     result.push(child.textContent);
   }
-
   return result;
 }
 
@@ -95,12 +94,9 @@ function findError(where) {
    должно быть преобразовано в <div></div><p></p>
  */
 function deleteTextNodes(where) {
-
-  for (const child of where.children) {
-    result.push(child.deleteTextContent);
+  for (const child of where.childNodes) {
+    if (child.nodeType === 3) {child.textContent = ""} ;
   }
-
-  return result;
 }
 
 /*
@@ -124,14 +120,6 @@ function deleteTextNodes(where) {
    }
  */
 function collectDOMStat(root) {
-
-  const body = document.body;
-
-  for (const node of body.childNodes) {
-    if(node.nodeType === 3) {
-      console.log('texts')
-    } else if(node.nodeType === 1) {console.log('tags')}
-  }
 
 }
 
