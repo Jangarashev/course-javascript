@@ -4,5 +4,7 @@ import('./styles.css');
 const pageNames = ['login', 'main', 'profile'];
 
 document.addEventListener('click', () => {
-    const random = Math.floor(Math.random() * pageNames.length);
+    const RandomPage = getRandomElement(['login', 'main', 'profile']);
+
+    return RandomPage
 });
