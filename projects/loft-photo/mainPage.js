@@ -1,4 +1,6 @@
+import pages from './pages';
 import model from './model';
+import profilePage from './profilePage';
 
 export default {
   async getNextPhoto() {
@@ -7,13 +9,17 @@ export default {
   },
 
   setFriendAndPhoto(friend, id, url) {
-    const photoCont = document.querySelector('.component-photo');
-    const headerPhotoConp = document.querySelector('.component-header-photo');
+    const photoComp = document.querySelector('.component-photo');
+    const headerPhotoComp = document.querySelector('.component-header-photo');
     const headerNameComp = document.querySelector('.component-header-name');
+    const footerPhotoComp = document.querySelector('.component-footer-photo');
 
-    headerPhotoConp.style.backgroundImage = `url('${friend.photo_50}')`;
+    this.friend = friend;
+
+    headerPhotoComp.style.backgroundImage = `url('${friend.photo_50}')`;
     headerNameComp.innerText = `${friend.first_name ?? ''} ${friend.last_name ?? ''}`;
-    photoCont.style.backgroundImage = `url(${url})`;
+    photoComp.style.backgroundImage = `url(${url})`;
+    footerPhotoComp.style.backgroundImage = `url('${model.me.photo_50}')`;
   },
 
   handleEvents() {
@@ -21,7 +27,7 @@ export default {
 
     document.querySelector('.component-photo').addEventListener('toughstart', (e) => {
       e.preventDefault();
-      startFrom = {y: e.changeTouches[0].pageY};
+      startFrom = { y: e.changedTouches[0].pageY };
     });
 
     document.querySelector('.component-photo').addEventListener('toughend', async (e) => {
@@ -32,5 +38,18 @@ export default {
       }
     });
 
+    document
+      .querySelector('component-header-profile-link')
+      .addEventListener('click', async () => {
+        await profilePage.setUser(this.friend);
+        pages.openPage('profile');
+      });
+
+    document
+      .querySelector('component-footer-container-profile-link')
+      .addEventListener('click', async () => {
+        await profilePage.setUser(this.me);
+        pages.openPage('profile');
+      });
   },
 };

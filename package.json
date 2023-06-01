@@ -29,13 +29,13 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
     "@babel/runtime": "^7.21.0",
-    "@typescript-eslint/eslint-plugin": "^5.49.0",
-    "@typescript-eslint/parser": "^5.49.0",
     "@types/jest": "^29.4.0",
     "@types/node": "^16.18.13",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
     "babel-jest": "^29.4.3",
     "babel-loader": "^9.1.2",
-    "css-loader": "^6.7.3",
+    "css-loader": "^6.7.4",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jest": "^27.2.1",
@@ -52,8 +52,14 @@
     "node-fetch-polyfill": "^2.0.6",
     "prettier": "^2.8.4",
     "raw-loader": "^4.0.2",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "svg-inline-loader": "^0.8.2",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "file-loader": "^6.2.0",
+    "style-loader": "^3.3.3",
+    "url-loader": "^4.1.1"
   }
 }

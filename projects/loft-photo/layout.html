@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=360,user-scalable=false" />
     <title>Loft Photo</title>
-    <script src="http://vk.com/js/api/openapi.js"></script>
+    <script
+ src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js">
+   </script>
+   <script src="https://vk.com/js/api/openapi.js?168" type="text/javascript"></script>
 </head>
 <body>
 <div id="app">
@@ -60,5 +63,15 @@
         <div class="component-user-photos"></div>
     </div>
 </div>
+<script id="user-template" type="text/x-handlebars-template">
+    <div class="friends">
+        {{#each items}}
+        <div class="friend">
+            <img src="{{photo_100}}"/>
+            <div>{{first_name}} {{last_name}}</div>
+        </div>
+        {{/each}}
+    </div>
+</script>
 </body>
 </html>
